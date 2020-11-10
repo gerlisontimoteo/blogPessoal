@@ -64,10 +64,42 @@
                             <button class="btn btn-outline-warning w-100" type="button">Pesquisar</button>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12" *ngFor='let item of ListaPostagens'>
+
+                            <div class="card mt-5">
+                                <div class="card-header">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-md-8">
+                                            <h5 class="card-title"> {{item.titulo}} </h5>
+                                            <small>Tema: {{item.tema.descricao}} </small>
+                                        </div>
+                                        <div class="col-md-4 d-flex justify-content-end">
+
+                                            <button class="mr-3 btn btn-outline-info">
+                                                Editar
+                                            </button>
+
+                                            <button class="btn btn-outline-danger ml-3">
+                                                Apagar
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <p class="card-text" aria-describedby="texto"> {{item.texto}} </p>
+                                    <small id="texto" class="form-text m-0 text-muted mb-3 text-monospace"> Postado em {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}} </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--SEGUNDO CONTEÚDO POSTAGENS-->
-                
+
             </div>
 
         </div>

@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import{ HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
+import { W_OK } from 'constants'
+import { constants } from 'buffer'
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { FormsModule } from '@angular/forms'
     PerfilLateralComponent,
     LoginComponent,
     CadastroComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
