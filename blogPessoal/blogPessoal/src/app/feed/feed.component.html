@@ -11,27 +11,26 @@
 
             <div class="form-group">
                 <label class="text-monospace" for="titulo">Título:</label>
-                <input type="text" class="form-control" id="titulo" aria-describedby="emailHelp"
-                    placeholder="Digite aqui o seu titulo">
+                <input type="text" class="form-control" id="titulo" placeholder="Digite aqui o seu titulo" [(ngModel)]='postagem.titulo'>
             </div>
             <div class="form-group">
                 <label class="text-monospace" for="texto">Texto:</label>
-                <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto"></textarea>
+                <textarea class="form-control" id="texto" rows="3" placeholder="Digite aqui o seu texto" [(ngModel)]='postagem.texto'></textarea>
             </div>
             <div class="row d-flex align-item-end">
                 <div class="col-md-6">
                     <div class="form-group m-0">
                         <label class="text-monospace" for="tema">Escolha um tema ou <a
                                 routerLink="/cadastrar-tema">Cadastre um novo</a></label>
-                        <select name="tema" id="tema" class="form-control">
-                            <option>
-                                Teste 123
+                        <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' change = 'findByIdTema()'>
+                            <option *ngFor = 'let item of ListaTemas' value={{item.id}}>
+                                {{item.descricao}}
                             </option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-info w-25">Publicar</button>
+                <div class="col-md-6 d-flex justify-content-end"></div>
+                    <button type="button" class="btn btn-outline-info w-25" (click)='publicar()'>Publicar</button>
                 </div>
 
             </div>
@@ -68,7 +67,7 @@
                     <div class="row">
                         <div class="col-md-12" *ngFor='let item of ListaPostagens'>
 
-                            <div class="card mt-5">
+                            <div class="card mt-5" *ngFor='let item of listaPostagens | orderBy : key : reverse'>
                                 <div class="card-header">
                                     <div class="row d-flex align-items-center">
                                         <div class="col-md-8">

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { W_OK } from 'constants';
 import { UserLogin } from '../Model/user';
 import { User } from '../Model/UserLogin';
 
